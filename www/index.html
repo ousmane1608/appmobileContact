@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <title>DIOOKO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="lib/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="lib/themes/jquery.mobile.icons.min.css">
+    <link rel="stylesheet" href="lib/themes/theme.css">
+    <link rel="stylesheet" href="lib/themes/theme.min.css">
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/jquery.mobile-1.4.5.min.js"></script>
+    <script src="cordova.js"></script>
+    <script src="js/index.js"></script>
+</head>
+<body>
+
+    <!-- Page d'accueil -->
+    <div id="homePage" data-role="page">
+        <header data-role="header">
+            <h1>Diooko</h1>
+        </header>
+        <main role="main" class="ui-content">
+            <a href="#addContactPage" data-role="button" data-icon="plus" data-iconpos="right">Ajouter</a>
+            <ul id="contactList" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="rechercher" data-split-icon="gear" data-split-theme="a" >
+                <!-- Les contacts seront injectés ici -->
+            </ul>
+        </main>
+        <footer data-role="footer" data-position="fixed">
+            <h1>DIC2 &copy; 2024</h1>
+        </footer>
+    </div>
+
+    <!-- details contacts -->
+    
+    <div id="detailsPage" data-role="page" data-role="back" data-icon="back">
+            <header data-role="header" >
+                <a href="#homePage" data-rel="back" data-icon="back" data-iconpos="notext"></a>
+                <h1>Diooko</h1>
+            </header>
+            <main role="main" class="ui-details">
+                <a href="#editContactPage" data-role="button" data-icon="edit" data-iconpos="right">Modifier</a>
+                <ul data-role="listview" data-inset="true" data-divider-theme="a">
+                    <li  data-icon="false" data-role="list-divider" style="width: 100%; height: 360px; text-align: center; font-size:25px; display: flex; flex-direction: column; justify-content: center; align-items: center;" data-divider-theme="a">
+                    </li>
+                    <li style="margin-top: 10px;" data-icon="phone" ><a href="#"></a></li>
+                    <li style="margin-top: 10px;" data-icon="mail" data-iconpos="left"><a href="#"></a></li>
+                </ul>
+            </main>
+            <footer data-role="footer" data-position="fixed">
+                <h1>DIC2 &copy; 2024</h1>
+            </footer>
+    </div>
+
+    <!-- Page d'ajout de contact -->
+    <div id="addContactPage" data-role="page" data-role="back" data-icon="back">
+        <header data-role="header">
+            <a href="#homePage" data-rel="back" data-icon="back" data-iconpos="notext"></a>
+            <h1>Diooko</h1>
+        </header>
+        <main role="main" class="ui-content">
+            <header data-role="header">
+                <h1>Ajouter un Contact</h1>
+            </header>
+            <form id="addContactForm">
+                <label for="nom">Nom</label>
+                <input type="text" id="nom" name="nom">
+                <label for="prenom">Prénom</label>
+                <input type="text" id="prenom" name="prenom">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone">
+                <button type="submit" onclick="addContact(event)">Ajouter</button>
+            </form>
+        </main>
+        <footer data-role="footer" data-position="fixed">
+            <h1>DIC2 &copy; 2024</h1>
+        </footer>
+    </div>
+
+        <!-- editContactPage -->
+    <div id="editContactPage" data-role="page" data-role="back" data-icon="back">
+        <header data-role="header">
+            <a href="#detailsPage" data-rel="back" data-icon="back" data-iconpos="notext"></a>
+            <h1>Diooko</h1>
+        </header>
+        <main role="main" class="ui-content">
+            <header data-role="header">
+                <h1>Modifier un Contact</h1>
+            </header>
+            <form id="editContactForm">
+                <label for="Mnom">Nom</label>
+                <input value="nom" type="text" id="Mnom" name="nom">
+                <label for="Mprenom">Prénom</label>
+                <input value="prenom" type="text" id="Mprenom" name="prenom">
+                <label for="Mtelephone">Téléphone</label>
+                <input value="prenom" type="tel" id="Mtelephone" name="telephone">
+                <label for="Memail-1">Email</label>
+                <input value="email" type="email" data-clear-btn="false" name="email-1" id="Memail-1" value="">
+                <button type="submit" onclick="editContact(event)">Modifier</button>
+            </form>
+        </main>
+        <footer data-role="footer" data-position="fixed">
+            <h1>DIC2 &copy; 2024</h1>
+        </footer>
+</body>
+</html>
